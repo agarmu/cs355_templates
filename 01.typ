@@ -1,7 +1,11 @@
 #import "template.typ": *
 #import "@preview/algo:0.3.4": algo, i, d, comment, code
 #import "symbols.typ": *
-#import "qed.typ": *
+
+
+#import "@preview/ctheorems:1.1.3": *
+#import "theorems.typ": *
+
 #let title = "Homework 1"
 #let author = "Mukul Agarwal"
 #let course_id = "CS 355"

@@ -1,10 +1,5 @@
 #import "symbols.typ": *
-#import "qed.typ": *
-
 #import "@preview/ctheorems:1.1.3": *
-#show: thmrules
-#let problem_counter = counter("problem")
-
 
 #let todo = highlight(text(size: 20pt, weight: "bold", "TODO"))
 
@@ -16,7 +11,6 @@
 
 
 #let problem(points: none, coalesce: false, title, question: none, body) = {
-
   __prob_number.update(u => u + 1)
   context {
   let num = __prob_number.get()
@@ -106,9 +100,10 @@
   semester,
   body,
 ) = {
-  set text(size: 10pt)
+  set text(size: 11pt)
   set document(title: title, author: author)
 
+  show: thmrules
   show heading: set block(above: 1.4em, below: 1em)
   set par(
     leading: 0.55em,
@@ -134,7 +129,7 @@
       grid(
         columns: (1fr, auto, 1fr),
         align: (auto, auto, right + bottom),
-        [], eq, box[$qed$ #v(3pt)],
+        [], eq, box[$qed$ #v(8pt)],
       )
     } else {
       eq

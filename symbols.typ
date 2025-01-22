@@ -1,23 +1,4 @@
 #import "@preview/algo:0.3.4": algo, i, d, comment, code
-#import "@preview/ctheorems:1.1.3": *
-
-
-/*
- * theorem environments
- */
-
-
-#let conjecture = thmplain("conjecture", "Conjecture", titlefmt: strong)
-#let theorem = thmplain("theorem", "Theorem", titlefmt: strong)
-#let corollary = thmplain("corollary", "Corollary", base: "theorem", titlefmt: strong)
-#let imp_theorem = thmplain("importedtheorem", "Imported Theorem", titlefmt: strong)
-#let inf_theorem = thmplain("informaltheorem", "Informal Theorem", titlefmt: strong)
-#let definition = thmplain("definition", "Definition", titlefmt: strong)
-#let lemma = thmplain("lemma", "Lemma", titlefmt: strong)
-#let claim = thmplain("claim", "Claim", titlefmt: strong)
-#let observation = thmplain("observation", "Observation", titlefmt: strong)
-#let property = thmplain("property", "Property", titlefmt: strong)
-
 
 /*
  * algorithm
@@ -79,19 +60,19 @@
 
 
 // bold letters
-#let bA = $bold("A")$
-#let bB = $bold("B")$
-#let bC = $bold("C")$
-#let bD = $bold("D")$
-#let bE = $bold("E")$
-#let bF = $bold("F")$
-#let bG = $bold("G")$
-#let bQ = $bold("Q")$
-#let bU = $bold("U")$
-#let bV = $bold("V")$
-#let bX = $bold("X")$
-#let bY = $bold("Y")$
-#let br = $bold("r")$
+#let bA = $upright(bold("A"))$
+#let bB = $upright(bold("B"))$
+#let bC = $upright(bold("C"))$
+#let bD = $upright(bold("D"))$
+#let bE = $upright(bold("E"))$
+#let bF = $upright(bold("F"))$
+#let bG = $upright(bold("G"))$
+#let bQ = $upright(bold("Q"))$
+#let bU = $upright(bold("U"))$
+#let bV = $upright(bold("V"))$
+#let bX = $upright(bold("X"))$
+#let bY = $upright(bold("Y"))$
+#let br = $upright(bold("r"))$
 
 // fraktur letters
 #let fP = $frak("P")$
@@ -164,7 +145,7 @@
 #let st = $theta$
 #let sm = $omega$
 
-#let rv(x) = $bold(#x)$
+#let rv(x) = $upright(bb(#x))$
 
 
 #let rvA = $rv("A")$
