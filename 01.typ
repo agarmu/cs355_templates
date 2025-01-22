@@ -165,7 +165,7 @@ that fall into bin $i$.
   ]
 )[]
 
-#problem[][
+#problem(coalesce: true)[][
  Recall that $x mod p$ means the remainder of $x$ when divided by $p$.
   For example, "$13$ divided by $3$" is $4$ with remainder $1$ because
   $13=4 dot 3 + 1$. We write this as: $13 mod 3 = 1$.
