@@ -13,50 +13,50 @@
 #let problem(points: none, coalesce: false, title, question: none, body) = {
   __prob_number.update(u => u + 1)
   context {
-  let num = __prob_number.get()
+    let num = __prob_number.get()
 
-  if num > 1 {
-    pagebreak(weak: true)
-  }
+    if num > 1 {
+      pagebreak(weak: true)
+    }
 
-  if points == none {
-    // initialize points
-    __points.update(x => {
-      x.insert(str(num), ())
-      x
-    })
-  }
-  let hdr = if points == none {
-    context {
-      let s = __points.final().at(str(num))
-      if s.len() == 0 {
-        [#title]
-      } else {
-        let pr = if coalesce {
-          s.sum()
+    if points == none {
+      // initialize points
+      __points.update(x => {
+        x.insert(str(num), ())
+        x
+      })
+    }
+    let hdr = if points == none {
+      context {
+        let s = __points.final().at(str(num))
+        if s.len() == 0 {
+          [#title]
         } else {
-          s.map(x => str(x)).join("+")
+          let pr = if coalesce {
+            s.sum()
+          } else {
+            s.map(x => str(x)).join("+")
+          }
+          [#title (#pr points)]
         }
-        [#title (#pr points)]
       }
-    }
-  } else {
-    [#title (#points points)]
-  }
-  __prob_active.update(points == none)
-  enum.item(num)[
-    #set enum(numbering: "(a)")
-    #if question == none {
-      [#strong(hdr) #body]
     } else {
-      [
-      #strong(hdr) #question
-      #v(.5em)
-      #strong[Solution.] #body
-      ]
+      [#title (#points points)]
     }
-  ]
-  __prob_active.update(false)
+    __prob_active.update(points == none)
+    enum.item(num)[
+      #set enum(numbering: "(a)")
+      #if question == none {
+        [#strong(hdr) #body]
+      } else {
+        [
+          #strong(hdr) #question
+          #v(.5em)
+          #strong[Solution.] #body
+        ]
+      }
+    ]
+    __prob_active.update(false)
   }
 }
 
@@ -67,27 +67,27 @@
 
 #let part(points, question, body, pb: false) = {
   context {
-  assert(
-    __prob_active.get(),
-    message: "No problem is active! Cannot declare part."
-  )
-  let prob_num = __prob_number.get()
-  let prob_count = __points.get().at(str(prob_num)).len() + 1
-  __points.update(x => {
-    let _ = x.at(str(prob_num)).push(points)
-    x
-  })
+    assert(
+      __prob_active.get(),
+      message: "No problem is active! Cannot declare part.",
+    )
+    let prob_num = __prob_number.get()
+    let prob_count = __points.get().at(str(prob_num)).len() + 1
+    __points.update(x => {
+      let _ = x.at(str(prob_num)).push(points)
+      x
+    })
 
-  if not __setbrk.get() {
-    v(.75em)
-  }
-  __setbrk.update(false)
-  enum.item(prob_count)[
-    #strong[(#points points)] #question
-    #v(.5em)
-    #strong[Solution.] #body
-  ]
-  v(1fr)
+    if not __setbrk.get() {
+      v(.75em)
+    }
+    __setbrk.update(false)
+    enum.item(prob_count)[
+      #strong[(#points points)] #question
+      #v(.5em)
+      #strong[Solution.] #body
+    ]
+    v(1fr)
   }
 }
 
@@ -99,6 +99,7 @@
   course_id,
   semester,
   body,
+  draft: true,
 ) = {
   set text(size: 11pt)
   set document(title: title, author: author)
@@ -108,22 +109,45 @@
   set par(
     leading: 0.55em,
     spacing: 0.9em,
-    justify: true
+    justify: true,
   )
   set text(font: "New Computer Modern")
   show heading: set block(above: 1.4em, below: 1em)
+  let width = 8.5in
+  let height = 11in
+  let xmargin = 1.75in
+  let ymargin = 1.75in
   set page(
-    margin: 1.75in,
-    paper: "us-letter",
+    margin: (x: xmargin, y: ymargin),
+    width: width,
+    height: height,
     header: box(
       inset: (bottom: 4pt, x: 2pt),
-      stroke: (bottom: 0.5pt + black)
+      stroke: (bottom: 0.5pt + black),
     )[#course_id, #semester #h(1fr) Name: #author],
-    footer: align(center, context counter(page).get().first()),
+    footer: align(
+      center,
+      context counter(page).get().first(),
+    ),
+    background: if draft {
+      box(
+        width: width - 2 * xmargin,
+        height: height - 2 * ymargin,
+        stroke: 0.8pt + gray.lighten(50%),
+        outset: 4pt,
+        box(
+          width: width - 2 * xmargin,
+          height: height - 2 * ymargin,
+          stroke: 0.3pt + gray.lighten(50%),
+          outset: 0pt,
+          text(size: 5em, fill: gray.lighten(60%))[*DRAFT*],
+        ),
+      )
+    } else { none },
   )
 
 
-  // 
+  //
   show math.equation.where(block: true): eq => {
     if thm-has-qedhere(eq) {
       grid(
