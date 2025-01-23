@@ -140,7 +140,7 @@
           height: height - 2 * ymargin,
           stroke: 0.3pt + gray.lighten(50%),
           outset: 0pt,
-          text(size: 5em, fill: gray.lighten(60%))[*DRAFT*],
+          text(size: 5em, fill: gray.lighten(80%))[*DRAFT*],
         ),
       )
     } else { none },
