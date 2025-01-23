@@ -51,7 +51,7 @@
       } else {
         [
           #strong(hdr) #question
-          #v(.5em)
+          #v(1.5em)
           #strong[Solution.] #body
         ]
       }
@@ -84,7 +84,7 @@
     __setbrk.update(false)
     enum.item(prob_count)[
       #strong[(#points points)] #question
-      #v(.5em)
+      #v(1.5em)
       #strong[Solution.] #body
     ]
     v(1fr)
@@ -107,8 +107,8 @@
   show: thmrules
   show heading: set block(above: 1.4em, below: 1em)
   set par(
-    leading: 0.55em,
-    spacing: 0.9em,
+    leading: 1em,
+    spacing: 0.7em,
     justify: true,
   )
   set text(font: "New Computer Modern")
@@ -140,25 +140,11 @@
           height: height - 2 * ymargin,
           stroke: 0.3pt + gray.lighten(50%),
           outset: 0pt,
-          text(size: 5em, fill: gray.lighten(80%))[*DRAFT*],
+          text(size: 5em, fill: gray.lighten(60%))[*DRAFT*],
         ),
       )
     } else { none },
   )
-
-
-  //
-  show math.equation.where(block: true): eq => {
-    if thm-has-qedhere(eq) {
-      grid(
-        columns: (1fr, auto, 1fr),
-        align: (auto, auto, right + bottom),
-        [], eq, box[$qed$ #v(8pt)],
-      )
-    } else {
-      eq
-    }
-  }
 
 
   // use parentheses as delimiters for

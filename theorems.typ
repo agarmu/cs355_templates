@@ -14,7 +14,8 @@
 
 #let definition = thmplain("definition", "Definition", titlefmt: strong)
 #let claim = thmplain("claim", "Claim", titlefmt: strong)
-#let observation = thmplain("observation", "Observation", titlefmt: strong)
-#let property = thmplain("property", "Property", titlefmt: strong)
+#let observation = thmplain("observation", "Observation", titlefmt: strong, base: none)
+#let property = thmplain("property", "Property", titlefmt: strong, base: none)
+#let notation = thmplain("notation", "Notation", titlefmt: strong, base: none)
 
 #let proof = thmproof("proof", "Proof")

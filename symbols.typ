@@ -9,7 +9,7 @@
   name,
   params,
   spec,
-  body
+  body,
 ) = [
   #let usn = us(name)
   $#usn (#params)$: #spec
@@ -18,7 +18,7 @@
     {
       if type(body) == content { body } else { body(usn) }
       [#d \ end *algorithm*]
-    }
+    },
   )
 ]
 
@@ -93,14 +93,12 @@
 // math symbols
 
 
-#let qed = $square.stroked$
 #let emptyset = $diameter$
 #let oc = $thin circle.small thin$
 
 #let length = math.op("length")
 #let dom = math.op("dom")
 #let img = math.op("im")
-#let qedcontent = [#h(1fr) #qed]
 
 
 #let inv(x) = $#x^(-1)$
@@ -137,9 +135,9 @@
 #let drawn = $~$
 
 // big/small O-Theta-omega
-#let bo=$cal(O)$
-#let bt=$Theta$
-#let bm=$Omega$
+#let bo = $cal(O)$
+#let bt = $Theta$
+#let bm = $Omega$
 
 #let so = $cal(o)$
 #let st = $theta$
@@ -173,18 +171,18 @@
 
 // algorithms & predicates
 #let pred(x) = $sans(#x)$
-#let mac = $pred("Mac")$ 
-#let sk = $pred("sk")$ 
-#let pk = $pred("pk")$ 
-#let gen = $pred("Gen")$ 
-#let enc = $pred("Enc")$ 
-#let dec = $pred("Dec")$ 
-#let SK = $pred("sk")$ 
+#let mac = $pred("Mac")$
+#let sk = $pred("sk")$
+#let pk = $pred("pk")$
+#let gen = $pred("Gen")$
+#let enc = $pred("Enc")$
+#let dec = $pred("Dec")$
+#let SK = $pred("sk")$
 #let capprox = $approx^((c))$
-#let tag = $pred("Tag")$ 
-#let sign = $pred("Sign")$ 
-#let ver = $pred("Ver")$ 
-#let simu = $pred("Sim")$ 
+#let tag = $pred("Tag")$
+#let sign = $pred("Sign")$
+#let ver = $pred("Ver")$
+#let simu = $pred("Sim")$
 #let ball = $pred("Ball")$
 #let vol = $pred("Vol")$
 
