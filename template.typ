@@ -83,7 +83,7 @@
     }
     __setbrk.update(false)
     enum.item(prob_count)[
-      #strong[(#points points)] #question
+      #strong[(#points points).] #question
       #v(1.5em)
       #strong[Solution.] #body
     ]
@@ -99,6 +99,7 @@
   course_id,
   semester,
   body,
+  margin: 1.75em,
   draft: true,
 ) = {
   set text(size: 11pt)
@@ -115,8 +116,8 @@
   show heading: set block(above: 1.4em, below: 1em)
   let width = 8.5in
   let height = 11in
-  let xmargin = 1.75in
-  let ymargin = 1.75in
+  let xmargin = margin
+  let ymargin = margin
   set page(
     margin: (x: xmargin, y: ymargin),
     width: width,
@@ -153,6 +154,8 @@
   set math.vec(delim: "(")
   show heading.where(level: 1): set text(20pt)
   show heading.where(level: 2): set text(16pt)
+  show math.equation: set block(breakable: true)
+
   v(.5em)
   align(center, text(16pt, title))
   v(3em)
