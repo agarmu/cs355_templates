@@ -101,7 +101,7 @@
 #let img = math.op("im")
 
 
-#let inv(x) = $#x^(-1)$
+#let inv = math.op(math.sans("inv"))
 #let ll = $cal(L)$
 #let nil = $sans("nil")$
 #let us(x) = $underline(sans(#x))$

@@ -101,6 +101,7 @@
   body,
   margin: 1.75em,
   draft: true,
+  collaborators: none,
 ) = {
   set text(size: 11pt)
   set document(title: title, author: author)
@@ -108,8 +109,8 @@
   show: thmrules
   show heading: set block(above: 1.4em, below: 1em)
   set par(
-    leading: 1em,
-    spacing: 0.7em,
+    leading: .7em,
+    spacing: 1.2em,
     justify: true,
   )
   set text(font: "New Computer Modern")
