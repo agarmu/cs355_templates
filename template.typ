@@ -37,11 +37,11 @@
           } else {
             s.map(x => str(x)).join("+")
           }
-          [#title (#pr points)]
+          [#title (#pr points).]
         }
       }
     } else {
-      [#title (#points points)]
+      [#title (#points points).]
     }
     __prob_active.update(points == none)
     enum.item(num)[
@@ -98,10 +98,10 @@
   author,
   course_id,
   semester,
+  collaborators,
   body,
   margin: 1.75em,
   draft: true,
-  collaborators: none,
 ) = {
   set text(size: 11pt)
   set document(title: title, author: author)
@@ -157,8 +157,20 @@
   show heading.where(level: 2): set text(16pt)
   show math.equation: set block(breakable: true)
 
-  v(.5em)
+  v(2em)
   align(center, text(16pt, title))
-  v(3em)
+  v(2em)
+  [*Collaborators: *]
+  if collaborators.len() == 0 {
+    [_none_]
+  } else if collaborators.len() == 1 {
+    collaborators.at(0)
+  } else if collaborators.len() == 2 {
+    collaborators.join(" and ")
+  } else {
+    collaborators.join(", ", last: ", and ")
+  }
+  [.]
+  v(1em)
   body
 }

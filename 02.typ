@@ -6,7 +6,7 @@
 #import "@preview/ctheorems:1.1.3": *
 #import "theorems.typ": *
 
-#let title = "Homework 1"
+#let title = "Homework 2"
 #let author = "Mukul Agarwal"
 #let course_id = "CS 355"
 #let semester = "Spring 2025"
@@ -19,8 +19,9 @@
   author,
   course_id,
   semester,
+  collaborators,
   margin: 1in,
-  draft: false,
+  draft: true,
 )
 
 #let zip = $ZZ_p^*$

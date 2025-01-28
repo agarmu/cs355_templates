@@ -10,6 +10,7 @@
 #let author = "Mukul Agarwal"
 #let course_id = "CS 355"
 #let semester = "Spring 2025"
+#let collaborators = ()
 #set enum(numbering: "1.")
 
 #show: assignment_class.with(
@@ -17,6 +18,7 @@
   author,
   course_id,
   semester,
+  collaborators,
 )
 
 #problem[Basic Probabilities][
