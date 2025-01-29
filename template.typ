@@ -106,7 +106,7 @@
   set text(size: 11pt)
   set document(title: title, author: author)
 
-  show: thmrules
+  show: thmrules.with(qed-symbol: $square$)
   show heading: set block(above: 1.4em, below: 1em)
   set par(
     leading: .7em,
