@@ -162,15 +162,13 @@
   v(2em)
   [*Collaborators: *]
   if collaborators.len() == 0 {
-    [_none_]
+    [_none_.]
   } else if collaborators.len() == 1 {
-    collaborators.at(0)
-  } else if collaborators.len() == 2 {
-    collaborators.join(" and ")
-  } else {
-    collaborators.join(", ", last: ", and ")
+    set list(indent: 1em)
+    for collaborator in collaborators {
+      list.item(collaborator)
+    }
   }
-  [.]
   v(1em)
   body
 }
