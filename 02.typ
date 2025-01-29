@@ -299,7 +299,7 @@
     Note that $e = (1,0,0)$ is an identity element. Find the inverse of
     $(0,1,1)$.
   ][
-
+    // TODO: Solution 6(b)
   ]
   #colbreak()
   #part(10)[
@@ -339,12 +339,17 @@
   ]
 ]
 
-#problem[Extra Credit/Challenge Problem][
-  Let $p >= 3$ be a prime number and $h$ be a non-negative
-  integer. Prove that the congruence $x^2 = h med mod p$ has a solution
-  if and only if for every $k >= 1$ the congruence $x^2 = h med mod p^k$
-  has a solution.
+#problem(
+  [Extra Credit/Challenge Problem],
+  question: [
+    Let $p >= 3$ be a prime number and $h$ be a non-negative
+    integer. Prove that the congruence $x^2 = h med mod p$ has
+    a solution if and only if for every $k >= 1$ the congruence
+    $x^2 = h med mod p^k$ has a solution.
 
-  *Hint:* Use induction on $k$. Modify a solution modulo $p^k$ to build a solution
-  modulo $p^(k+1)$.
+    *Hint:* Use induction on $k$. Modify a solution modulo
+    $p^k$ to build a solution modulo $p^(k+1)$.
+  ],
+)[
+
 ]
