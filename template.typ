@@ -4,17 +4,15 @@
 #let todo = highlight(text(size: 20pt, weight: "bold", "TODO"))
 
 #let __display = state("__display", ())
-#let __prob_number = state("__problem_number", 0)
 #let __prob_active = state("__problem_active", false)
 #let __points = state("__points", (:))
 #let __setbrk = state("__setbrk", false)
 
 
 #let problem(points: none, coalesce: false, title, question: none, body) = {
-  __prob_number.update(u => u + 1)
+  counter(heading).update(u => u + 1)
   context {
-    let num = __prob_number.get()
-
+    let num = counter(heading).get().at(0)
     if num > 1 {
       pagebreak(weak: true)
     }
@@ -71,7 +69,7 @@
       __prob_active.get(),
       message: "No problem is active! Cannot declare part.",
     )
-    let prob_num = __prob_number.get()
+    let prob_num = counter(heading).get().at(0)
     let prob_count = __points.get().at(str(prob_num)).len() + 1
     __points.update(x => {
       let _ = x.at(str(prob_num)).push(points)
@@ -100,7 +98,7 @@
   semester,
   collaborators,
   body,
-  margin: 1.75em,
+  margin: 1.75in,
   draft: true,
 ) = {
   set text(size: 11pt)
@@ -117,10 +115,8 @@
   show heading: set block(above: 1.4em, below: 1em)
   let width = 8.5in
   let height = 11in
-  let xmargin = margin
-  let ymargin = margin
   set page(
-    margin: (x: xmargin, y: ymargin),
+    margin: margin,
     width: width,
     height: height,
     header: box(
@@ -133,13 +129,13 @@
     ),
     background: if draft {
       box(
-        width: width - 2 * xmargin,
-        height: height - 2 * ymargin,
+        width: width - 2 * margin,
+        height: height - 2 * margin,
         stroke: 0.8pt + gray.lighten(50%),
         outset: 4pt,
         box(
-          width: width - 2 * xmargin,
-          height: height - 2 * ymargin,
+          width: width - 2 * margin,
+          height: height - 2 * margin,
           stroke: 0.3pt + gray.lighten(50%),
           outset: 0pt,
           text(size: 5em, fill: gray.lighten(60%))[*DRAFT*],
