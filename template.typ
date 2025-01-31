@@ -159,7 +159,7 @@
   [*Collaborators: *]
   if collaborators.len() == 0 {
     [_none_.]
-  } else if collaborators.len() == 1 {
+  } else {
     set list(indent: 1em)
     for collaborator in collaborators {
       list.item(collaborator)
