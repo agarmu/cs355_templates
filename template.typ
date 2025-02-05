@@ -105,7 +105,6 @@
   set document(title: title, author: author)
 
   show: thmrules.with(qed-symbol: $square$)
-  show heading: set block(above: 1.4em, below: 1em)
   set par(
     leading: .7em,
     spacing: 1.2em,
@@ -152,6 +151,8 @@
   show heading.where(level: 1): set text(20pt)
   show heading.where(level: 2): set text(16pt)
   show math.equation: set block(breakable: true)
+
+  show link: set text(fill: rgb(0, 0, 100%), weight: "bold")
 
   v(2em)
   align(center, text(16pt, title))
