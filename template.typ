@@ -28,7 +28,7 @@
       context {
         let s = __points.final().at(str(num))
         if s.len() == 0 {
-          [#title]
+          [#title.]
         } else {
           let pr = if coalesce {
             s.sum()
