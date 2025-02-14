@@ -9,7 +9,7 @@
 #let __setbrk = state("__setbrk", false)
 
 
-#let problem(points: none, coalesce: false, title, question: none, body) = {
+#let problem(points: none, coalesce: false, title, question: none, body, solution_spacing: 1.5em) = {
   counter(heading).update(u => u + 1)
   context {
     let num = counter(heading).get().at(0)
@@ -49,7 +49,7 @@
       } else {
         [
           #strong(hdr) #question
-          #v(1.5em)
+          #v(solution_spacing)
           #strong[Solution.] #body
         ]
       }
@@ -63,7 +63,7 @@
   #colbreak(weak: true)
 ]
 
-#let part(points, question, body, pb: false) = {
+#let part(points, question, body, pb: false, solution_spacing: 1.5em, show_points: true) = {
   context {
     assert(
       __prob_active.get(),
@@ -81,8 +81,11 @@
     }
     __setbrk.update(false)
     enum.item(prob_count)[
-      #strong[(#points points).] #question
-      #v(1.5em)
+      #if show_points {
+        strong[(#points points).]
+      }
+      #question
+      #v(solution_spacing)
       #strong[Solution.] #body
     ]
     v(1fr)
@@ -97,6 +100,7 @@
   course_id,
   semester,
   collaborators,
+  collaborator_top: true,
   body,
   margin: 1.75in,
   draft: true,
@@ -154,18 +158,27 @@
 
   show link: set text(fill: rgb(0, 0, 100%), weight: "bold")
 
+  let collaborators = {
+    [*Collaborators: *]
+    if collaborators.len() == 0 {
+      [_none_.]
+    } else {
+      set list(indent: 1em)
+      for collaborator in collaborators {
+        list.item(collaborator)
+      }
+    }
+  }
   v(2em)
   align(center, text(16pt, title))
   v(2em)
-  [*Collaborators: *]
-  if collaborators.len() == 0 {
-    [_none_.]
-  } else {
-    set list(indent: 1em)
-    for collaborator in collaborators {
-      list.item(collaborator)
-    }
+  if collaborator_top {
+    collaborators
   }
   v(1em)
   body
+  if collaborator_top == false {
+    pagebreak(weak: true)
+    collaborators
+  }
 }
