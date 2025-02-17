@@ -71,7 +71,8 @@
     the $3$ positions such that
     $pi(b_1 b_2 b_3) = b_2 b_3 b_1$; i.e., $pi(101) = 011$. \
     #text(size: 9pt)[
-      Note: This encryption scheme shows that the witness for an encryption does not have to be unique.
+      Note: This encryption scheme shows that the witness
+      for an encryption does not have to be unique.
     ]
   ][
 
@@ -131,8 +132,9 @@
     this new definition.
 
     #text(size: 9pt)[
-      Remark. You need to construct a private-key encryption scheme that is secure according to the definition we
-      learned in class. However, this scheme does not satisfy the new definition
+      Remark. You need to construct a private-key encryption scheme
+      that is secure according to the definition we learned in class.
+      However, this scheme does not satisfy the new definition.
     ]
   ],
 )[
