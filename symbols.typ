@@ -146,6 +146,9 @@
 #let rv(x) = $upright(bb(#x))$
 
 
+#let so = $bold(sans(Omega))$
+#let rs(i) = $bold(sans(Omega_#i))$
+
 #let rvA = $rv("A")$
 #let rvB = $rv("B")$
 #let rvC = $rv("C")$
@@ -170,7 +173,7 @@
 #let rvc = $rv("c")$
 
 // algorithms & predicates
-#let pred(x) = $sans(#x)$
+#let pred(x) = $op(sans(#x))$
 #let mac = $pred("Mac")$
 #let sk = $pred("sk")$
 #let pk = $pred("pk")$
@@ -178,6 +181,10 @@
 #let enc = $pred("Enc")$
 #let dec = $pred("Dec")$
 #let SK = $pred("sk")$
+#let wt = $pred("wt")$
+#let esk = $op(enc_sk)$
+#let dsk = $op(enc_sk)$
+
 #let capprox = $approx^((c))$
 #let tag = $pred("Tag")$
 #let sign = $pred("Sign")$

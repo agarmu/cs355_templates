@@ -156,7 +156,7 @@
   show heading.where(level: 2): set text(16pt)
   show math.equation: set block(breakable: true)
 
-  show link: set text(fill: rgb(0, 0, 100%), weight: "bold")
+  show link: set text(fill: rgb(0, 0, 100%).darken(30%), weight: "bold")
 
   let collaborators = {
     [*Collaborators: *]
